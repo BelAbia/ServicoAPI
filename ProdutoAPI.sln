@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio.csproj", "{F7F709F9-BBA5-4A72-A4AA-82D1765F9323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{F7F709F9-BBA5-4A72-A4AA-82D1765F9323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestrutura", "..\Infraestrutura\Infraestrutura.csproj", "{151545FC-F4AA-469A-967E-EC6A055E8E0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infraestrutura", "Infraestrutura\Infraestrutura.csproj", "{151545FC-F4AA-469A-967E-EC6A055E8E0B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F7F709F9-BBA5-4A72-A4AA-82D1765F9323} = {F7F709F9-BBA5-4A72-A4AA-82D1765F9323}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico.API", "..\Servico.API\Servico.API.csproj", "{9EB7BF03-A843-41D5-87F8-8F4D8944C43A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Produto.API", "Servico.API\Produto.API.csproj", "{9EB7BF03-A843-41D5-87F8-8F4D8944C43A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{151545FC-F4AA-469A-967E-EC6A055E8E0B} = {151545FC-F4AA-469A-967E-EC6A055E8E0B}
 	EndProjectSection
