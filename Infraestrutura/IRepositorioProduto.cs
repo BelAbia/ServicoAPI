@@ -1,4 +1,4 @@
-﻿using Dominio;
+﻿using Dominio.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Infraestrutura
         public List<Produto> ObterTodos();
         public Produto Adicionar(Produto produto);
         public void Atualizar(Produto produto);
-        public List<ProdutoDTO> ObterDashboard();
+        public List<ProdutoDTO> ObterQuantidadeEPrecoMedioPorTipo();
         public void Deletar (int id);
     }
 }

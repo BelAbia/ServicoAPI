@@ -1,9 +1,13 @@
-using Dominio;
+using Dominio.Modelos;
+using Dominio.Validacoes;
 using FluentMigrator.Runner;
+using FluentValidation;
 using Infraestrutura;
+using Infraestrutura.Autenticacao;
 using LinqToDB;
 using LinqToDB.AspNet;
 using LinqToDB.AspNet.Logging;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRepositorioProduto, RepositorioProduto>();
-
+builder.Services.AddScoped<IValidator<Produto>, ProdutoValidador>();
+builder.Services.AddAuthentication("BasicAuthentication")
+    .AddScheme<AuthenticationSchemeOptions, ServicoDeAutenticacao>("BasicAuthentication", null);
 builder.Services.AddLinqToDBContext<ProdutoDb>((provider, options) =>
     options
         .UsePostgreSQL(builder.Configuration.GetConnectionString("Default"))

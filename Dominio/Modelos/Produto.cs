@@ -1,7 +1,7 @@
 ﻿using LinqToDB.Mapping;
-using static Dominio.TipoEnum;
+using static Dominio.Modelos.TipoEnum;
 
-namespace Dominio
+namespace Dominio.Modelos
 {
     [Table("Produto")]
     public class Produto
@@ -13,9 +13,9 @@ namespace Dominio
         public string Nome { get; set; }
 
         [Column("Tipo"), NotNull]
-        public Tipo Tipo { get; set;}
+        public Tipo Tipo { get; set; }
 
         [Column("PrecoUnitario"), NotNull]
-        public double PrecoUnitario { get; set;}
+        public double PrecoUnitario { get; set; }
     }
 }
