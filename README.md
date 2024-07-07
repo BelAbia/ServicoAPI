@@ -5,5 +5,4 @@ Para a migração funcionar devidamente basta mudar a conection string que está
 Caso o nome da base não for alterado, é preciso criar um banco de dados chamado ProdutoDB para a migração rodar normlamente.
 
 O usuário e senha de autenticação foi feita de forma estática, onde:
-username é admin e 
-password é 1234
+username é admin e password é 1234
