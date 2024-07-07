@@ -12,9 +12,9 @@ namespace Dominio.Modelos
         public enum Tipo
         {
             [Description("Serviço")]
-            Servico,
+            Servico = 0,
             [Description("Material")]
-            Material
+            Material = 1
         }
     }
 }

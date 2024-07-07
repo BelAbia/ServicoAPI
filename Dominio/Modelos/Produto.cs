@@ -6,7 +6,7 @@ namespace Dominio.Modelos
     [Table("Produto")]
     public class Produto
     {
-        [PrimaryKey]
+        [PrimaryKey, Identity]
         public int Id { get; set; }
 
         [Column("Nome"), NotNull]

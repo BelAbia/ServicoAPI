@@ -32,9 +32,9 @@ namespace Infraestrutura
             {
                 return _conexao.Produto.FirstOrDefault(produto => produto.Id == id) 
                     ?? throw new Exception("Produto não encontrado.");
-            }catch
+            }catch(Exception ex)
             {
-                throw new Exception("Ocorreu um erro ao obter o produto no servidor.");
+                throw new Exception(ex.Message);
             }
         }
 
@@ -68,12 +68,12 @@ namespace Infraestrutura
                 }
 
                 _validador.ValidateAndThrow(produto);
-                _conexao.Insert(produto);
+                produto.Id = _conexao.InsertWithInt32Identity(produto);
                 return produto;
             }
-            catch
+            catch(Exception ex) 
             {
-                throw new Exception("Ocorreu um erro no servidor ao tentar criar o produto.");
+                throw new Exception(ex.Message);
             }
         }
 
@@ -89,9 +89,9 @@ namespace Infraestrutura
                 _validador.ValidateAndThrow(produto);
                 _conexao.Update(produto);
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Ocorreu um erro no servidor ao tentar atualizar o produto.");
+                throw new Exception(ex.Message);
             }
         }
 
@@ -101,9 +101,9 @@ namespace Infraestrutura
             {
                 _conexao.Produto.Where(person => person.Id == id).Delete();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Ocorreu um erro no servidor ao tentar deletar o produto.");
+                throw new Exception(ex.Message);
             }
         }
     }

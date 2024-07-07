@@ -58,7 +58,7 @@ namespace Infraestrutura.Autenticacao
             var username = credenciais[0];
             var password = credenciais[1];
 
-            if(username != usernameAutorizado && password != passwordAutorizado)
+            if(username != usernameAutorizado || password != passwordAutorizado)
             {
                 return AuthenticateResult.Fail("Unauthorized");
             }
