@@ -31,7 +31,7 @@ namespace Infraestrutura
             try
             {
                 return _conexao.Produto.FirstOrDefault(produto => produto.Id == id) 
-                    ?? throw new Exception("Produto não encontrado.");
+                    ?? throw new Exception($"Produto com id [{id}] não encontrado.");
             }catch(Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -86,6 +86,13 @@ namespace Infraestrutura
                     throw new ArgumentNullException(nameof(produto), "O produto não foi informado.");
                 }
 
+                var produtoDoBanco = ObterPorId(produto.Id);
+
+                if (produtoDoBanco is null)
+                {
+                    throw new Exception("Este produto não existe na base de dados.");
+                }
+
                 _validador.ValidateAndThrow(produto);
                 _conexao.Update(produto);
             }
@@ -99,7 +106,14 @@ namespace Infraestrutura
         {
             try
             {
-                _conexao.Produto.Where(person => person.Id == id).Delete();
+                var produtoDoBanco = ObterPorId(id);
+
+                if (produtoDoBanco is null)
+                {
+                    throw new Exception("Este produto não existe na base de dados.");
+                }
+
+                _conexao.Delete(produtoDoBanco);
             }
             catch(Exception ex)
             {
